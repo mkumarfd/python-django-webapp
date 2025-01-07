@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container" style="margin-top: 80px; text-align: center;">
+
+    <body>
+        <h3>Welcome to Stock Management</h3>
+        <p>Today is {{today}}</p>
+        <a href="{% url 'customer.list' %}" class="btn btn-primary">Check out the customer list</a>
+    </body>
+</div>
+
+<!-- <form method="post" action="{% url 'logout' %}">
+    {% csrf_token %}
+    <button type="submit">logout</button>
+</form> -->
+{% endblock %}

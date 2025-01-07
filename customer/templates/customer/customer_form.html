@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style>
+    .container {
+        max-width: 40% !important;
+    }
+</style>
+
+<div class="container" style="margin-top: 80px;">
+    <h3>Edit Customer</h3>
+    <form method="POST">{% csrf_token %}
+        <table>
+            {{ form.as_table}}
+        </table>
+        <button type="submit" class="btn btn-primary my-5">Submit</button>
+        <a href="{% url 'customer.list' %}" class="btn btn-secondary my-5">Cancel</a>
+    </form>
+
+    {% if form.errors %}
+    <div class="alert alert-danger my-5">
+        {{form.errors.name.as_text}}
+        {{form.errors.creditlimit.as_text}}
+    </div>
+    {% endif %}
+
+</div>
+{% endblock %}
